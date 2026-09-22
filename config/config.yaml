@@ -1,0 +1,47 @@
+# Space Debris Collision Risk Predictor Configuration
+# Academic Feasibility Study
+
+project:
+  name: "Space Debris Collision Risk Predictor"
+  version: "1.0.0"
+  random_seed: 42
+
+data:
+  debris_tle: "data/raw/cosmos_2251_debris.tle"
+  debris_csv: "data/raw/cosmos_2251_debris.csv"
+  satellites_tle: "data/raw/starlink.tle"
+  satellites_csv: "data/raw/starlink.csv"
+  processed_features: "data/processed/conjunction_features.csv"
+  propagated_states: "data/processed/propagated_states.parquet"
+
+propagation:
+  # Reference frame: TEME (True Equator, Mean Equinox) in km and km/s
+  prediction_window_minutes: 90
+  time_step_minutes: 2.0
+  gravity_model: "wgs72"  # standard for SGP4
+
+proximity_filter:
+  # Experimental screening threshold in kilometers (NOT official collision probability)
+  screening_threshold_km: 200.0
+
+labeling:
+  # Experimental proxy risk label threshold (km)
+  # High/Potentially Risky proxy if minimum distance <= risk_distance_km
+  risk_distance_km: 50.0
+
+models:
+  test_size: 0.25
+  random_state: 42
+  logistic_regression:
+    max_iter: 1000
+    class_weight: "balanced"
+    C: 1.0
+  random_forest:
+    n_estimators: 100
+    max_depth: 8
+    class_weight: "balanced"
+    random_state: 42
+
+risk_scoring:
+  low_threshold: 0.3
+  high_threshold: 0.7
