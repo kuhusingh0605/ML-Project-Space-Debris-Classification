@@ -1,0 +1,9 @@
+{
+  "total_possible_pairs": 55500,
+  "candidate_pairs_retained": 28,
+  "pairs_removed": 55472,
+  "reduction_percentage": 99.9495,
+  "baseline_runtime_sec": 2.711673,
+  "filtered_runtime_sec": 0.156023,
+  "speedup_factor": 17.38
+}

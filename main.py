@@ -343,7 +343,7 @@ def run_pipeline(config: dict) -> None:
             for _, row in top_pairs.iterrows():
                 cat = row.get("risk_category", "N/A")
                 print(
-                    f"  [{cat}] {row.get('sat_name','?')} ↔ {row.get('debris_name','?')}"
+                    f"  [{cat}] {row.get('sat_name','?')} <-> {row.get('debris_name','?')}"
                     f" | Dist: {row.get('minimum_distance_km',0):.2f} km"
                     f" | Vel: {row.get('relative_velocity_km_s',0):.2f} km/s"
                     f" | Score: {row.get('risk_score',0):.4f}"

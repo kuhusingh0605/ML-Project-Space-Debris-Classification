@@ -1,0 +1,44 @@
+====================================================
+RANDOM FOREST EXPERIMENTAL EVALUATION REPORT
+====================================================
+Project: Space Debris Collision Risk Predictor (B.Tech Feasibility Study)
+Target: Binary proxy screening label (1 = High Priority, 0 = Low Priority)
+
+DATASET:
+  Total samples: 217 (Train: 162, Test: 55)
+  Class distribution: Low = 22 (10.1%), High = 195 (89.9%)
+  Majority Class Baseline Accuracy: 89.86%
+
+FEATURES:
+  Used (8): altitude_difference_km, time_to_tca_min, sat_altitude_km, debris_altitude_km, inclination_difference_deg, eccentricity_difference, period_difference_min, sma_difference_km
+  Removed due to target leakage (2): minimum_distance_km, relative_velocity_km_s
+
+CROSS-VALIDATION (5-fold StratifiedKFold, Training Only):
+  Accuracy          : 95.70% ± 3.11%
+  Precision         : 98.02% ± 2.66%
+  Recall            : 97.24% ± 2.58%
+  F1 Score          : 97.59% ± 1.75%
+  ROC-AUC           : 0.9828 ± 0.0218
+  Average Precision : 0.9980 ± 0.0027
+
+FINAL TEST EVALUATION (Held-out Test Set, N=55):
+  Decision Threshold: 0.45 (OOF training tuned)
+  Accuracy          : 96.36%
+  Precision         : 100.00%
+  Recall            : 95.92%
+  F1 Score          : 97.92%
+  ROC-AUC           : 0.9796
+  Average Precision : 0.9976
+
+CONFUSION MATRIX:
+  TN = 6, FP = 0, FN = 2, TP = 47
+
+FEATURE IMPORTANCE (Gini Impurity):
+  1. eccentricity_difference            : 0.2908
+  2. period_difference_min              : 0.1559
+  3. altitude_difference_km             : 0.1545
+  4. inclination_difference_deg         : 0.1349
+  5. sma_difference_km                  : 0.1200
+  6. sat_altitude_km                    : 0.0586
+  7. debris_altitude_km                 : 0.0491
+  8. time_to_tca_min                    : 0.0362

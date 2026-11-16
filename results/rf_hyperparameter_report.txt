@@ -1,0 +1,30 @@
+====================================================
+RANDOM FOREST HYPERPARAMETER SPECIFICATION REPORT
+====================================================
+Model: RandomForestClassifier
+Random Forest hyperparameters were manually specified for this experiment;
+systematic hyperparameter optimization was not performed.
+
+HYPERPARAMETERS USED:
+- n_estimators = 200
+  Number of decision trees in the forest. Provides ensemble stability without overfitting on small datasets.
+- max_depth = 6
+  Maximum depth of each decision tree. Constrained to 6 to regularize against tree memorization.
+- min_samples_split = 4
+  Minimum number of samples required to split an internal node. Prevents splitting on solitary noise points.
+- min_samples_leaf = 2
+  Minimum number of samples required to be at a leaf node. Smooths leaf probability estimates.
+- max_features = 'sqrt'
+  Number of features considered at each split (sqrt(8) ≈ 2-3 features). Decorrelates individual trees.
+- class_weight = 'balanced'
+  Adjusts weights inversely proportional to class frequencies to address severe class imbalance (Low=10.1%, High=89.9%).
+- random_state = 42
+  Ensures exact experimental reproducibility across all runs.
+- n_jobs = 1
+  Single-process execution to avoid Windows joblib multiprocessing compatibility issues on Python 3.13.
+
+OTHER EXPERIMENTAL SETTINGS (DISTINCT FROM RF HYPERPARAMETERS):
+- Train / Test split: 75% training (N=162), 25% test (N=55), stratified on label.
+- Cross-validation: StratifiedKFold (k=5, training set only).
+- Decision Threshold: 0.45 (Selected via Out-of-Fold training validation to maximize F1).
+  IMPORTANT: The classification threshold is a probability decision threshold, NOT a Random Forest hyperparameter.

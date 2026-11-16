@@ -1,0 +1,43 @@
+{
+  "model": "Random Forest",
+  "random_seed": 42,
+  "n_test": 55,
+  "n_positive_test": 49,
+  "n_negative_test": 6,
+  "selected_threshold": 0.45,
+  "accuracy": 0.9636363636363636,
+  "precision": 1.0,
+  "recall": 0.9591836734693877,
+  "f1_score": 0.9791666666666666,
+  "roc_auc": 0.9795918367346939,
+  "average_precision": 0.9976221257733863,
+  "confusion_matrix": {
+    "tn": 6,
+    "fp": 0,
+    "fn": 2,
+    "tp": 47
+  },
+  "features_used": [
+    "altitude_difference_km",
+    "time_to_tca_min",
+    "sat_altitude_km",
+    "debris_altitude_km",
+    "inclination_difference_deg",
+    "eccentricity_difference",
+    "period_difference_min",
+    "sma_difference_km"
+  ],
+  "leakage_removed": [
+    "minimum_distance_km",
+    "relative_velocity_km_s"
+  ],
+  "label_logic": "label=1 if min_dist<=50.0km OR rel_vel>=12.0km/s",
+  "rf_params": {
+    "n_estimators": 200,
+    "max_depth": 6,
+    "min_samples_split": 4,
+    "min_samples_leaf": 2,
+    "max_features": "sqrt",
+    "class_weight": "balanced"
+  }
+}

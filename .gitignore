@@ -1,4 +1,4 @@
-# Python
+# Python bytecode and caches
 __pycache__/
 *.py[cod]
 *$py.class
@@ -8,26 +8,17 @@ __pycache__/
 *.egg-info/
 dist/
 build/
-eggs/
-parts/
-var/
-sdist/
-develop-eggs/
-.installed.cfg
-lib/
-lib64/
 
 # Virtual environments
 .venv/
 venv/
 ENV/
 env/
+env*/
 
-# Jupyter
+# Jupyter & IDEs
 .ipynb_checkpoints/
 *.ipynb_checkpoints
-
-# IDE
 .vscode/
 .idea/
 *.swp
@@ -35,21 +26,15 @@ env/
 .DS_Store
 Thumbs.db
 
-# Model files (large)
-models/*.pkl
-
-# Processed data (reproducible from raw)
+# Large intermediate state caches (reproducible from scripts)
 data/processed/*.parquet
-data/processed/*.csv
 
-# Results (reproducible)
-results/*.png
-results/*.json
-results/*.csv
-
-# Logs
+# Temporary / Scratch files
+temp_*/
+*.tmp
 *.log
 
-# Environment variables
+# Environment variables & secrets
 .env
 .env.local
+.env.*.local

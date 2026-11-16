@@ -1,0 +1,4 @@
+Method,Recall (Safety %),Precision,F1-Score
+Logistic Regression (Baseline),64.29%,29.03%,40.00%
+Support Vector Machine (SVC),100.00%,73.68%,84.85%
+Hybrid Ensemble Model (LR + SVC),85.71%,80.00%,82.76%

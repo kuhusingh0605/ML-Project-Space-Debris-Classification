@@ -65,6 +65,6 @@ def report_dataset_health(df: pd.DataFrame, name: str = "Dataset") -> None:
         for col, cnt in nan_counts[nan_counts > 0].items():
             logger.info(f"    {col}: {cnt}")
     else:
-        logger.info("  No NaN values in numeric columns. ✓")
+        logger.info("  No NaN values in numeric columns. [OK]")
     if "label" in df.columns:
         logger.info(f"  Label distribution: {df['label'].value_counts().to_dict()}")

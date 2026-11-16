@@ -1,0 +1,31 @@
+{
+    "dataset_files_discovered": 2,
+    "raw_pipeline_file": "C:\\Users\\Kuhu Singh\\Desktop\\ML Project\\data\\processed\\conjunction_features.csv",
+    "raw_pipeline_rows": 28,
+    "processed_file": "C:\\Users\\Kuhu Singh\\Desktop\\ML Project\\data\\cleaned data\\cleaned_preprocessed_data\\conjunction_features_labelled",
+    "processed_rows": 189,
+    "total_observations_before_cleaning": 217,
+    "exact_duplicates_removed": 0,
+    "overlapping_pairs_removed": 0,
+    "invalid_records_excluded": 0,
+    "final_unique_observations": 217,
+    "number_of_features_used": 8,
+    "feature_names": [
+        "altitude_difference_km",
+        "time_to_tca_min",
+        "sat_altitude_km",
+        "debris_altitude_km",
+        "inclination_difference_deg",
+        "eccentricity_difference",
+        "period_difference_min",
+        "sma_difference_km"
+    ],
+    "target_leakage_excluded_features": [
+        "minimum_distance_km",
+        "relative_velocity_km_s"
+    ],
+    "class_1_high_risk": 195,
+    "class_0_low_risk": 22,
+    "majority_class_base_rate_pct": 89.86,
+    "proxy_rule": "minimum_distance_km <= 50.0 km OR relative_velocity_km_s >= 12.0 km/s"
+}
